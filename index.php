@@ -2,10 +2,8 @@
 <html>
   <head>
     <link href="./styles/app.css" rel="stylesheet" />
-    <script
-      type="text/javascript"
-      src="https://sandbox.web.squarecdn.com/v1/square.js"
-    ></script>
+    <script type="text/javascript" src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
+
     <script>
       const appId = 'sandbox-sq0idb-28OuU1COr-wx0UuFMMTTLg';
       const locationId = 'LY0FNVW3P7EF6';
@@ -13,7 +11,6 @@
       async function initializeCard(payments) {
         const card = await payments.card();
         await card.attach('#card-container');
-
         return card;
       }
 

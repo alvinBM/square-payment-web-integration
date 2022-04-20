@@ -17,10 +17,11 @@
         return card;
       }
 
-      async function createPayment(token) {
+      async function createPayment(token, amount) {
         const body = JSON.stringify({
           locationId,
           sourceId: token,
+          amount: amount 
         });
 
         
@@ -103,11 +104,13 @@
         async function handlePaymentMethodSubmission(event, paymentMethod) {
           event.preventDefault();
 
+          const amount = document.getElementById('amount').value;
+
           try {
             // disable the submit button as we await tokenization and make a payment request.
             cardButton.disabled = true;
             const token = await tokenize(paymentMethod);
-            const paymentResults = await createPayment(token);
+            const paymentResults = await createPayment(token, amount);
             displayPaymentResults('SUCCESS');
 
             console.debug('Payment Success', paymentResults);
@@ -127,6 +130,8 @@
   </head>
   <body style="background-color:  #f1f1f1">
     <form id="payment-form">
+      <h1>Test square payment with card</h1>
+      <input type="number" id="amount" name="amount" />
       <div id="card-container"></div>
       <button id="card-button" type="button">Pay $1.00</button>
     </form>

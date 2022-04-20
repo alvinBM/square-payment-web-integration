@@ -4,7 +4,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #222222 !important;
+  background-color: #dadada !important;
 }
 
 #payment-form {
@@ -141,6 +141,9 @@ button:disabled {
   width: 225px;
   height: 48px;
   visibility: hidden;
+  background-color: #fff;
+  padding: 10px 30px;
+  border-radius: 5px;
 }
 
 #payment-status-container.missing-credentials {

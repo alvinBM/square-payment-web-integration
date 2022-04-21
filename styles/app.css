@@ -127,18 +127,26 @@ button:disabled {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 6px;
   border: 1px solid rgba(0, 0, 0, 0.05);
   box-sizing: border-box;
-  border-radius: 50px;
-  /* margin: 0 auto; */
-  width: 225px;
-  height: 48px;
+  width: 500px;
+  min-height: 100px;
   visibility: hidden;
-  background-color: #fff;
-  padding: 10px 30px;
+  background-color: #f6f6f6;
+  padding: 30px;
   border-radius: 5px;
+  margin-bottom: 20px;
 }
 
+#payment-status-container b{
+  color: #00b23b;
+}
+#payment-status-container p{
+  text-align: center;
+}
+/* 
 #payment-status-container.missing-credentials {
   width: 350px;
 }
@@ -148,13 +156,13 @@ button:disabled {
   background-color: #00b23b;
   width: 16px;
   height: 16px;
-  margin-right: 16px;
+  margin-right: 30px;
   -webkit-mask: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16ZM11.7071 6.70711C12.0968 6.31744 12.0978 5.68597 11.7093 5.29509C11.3208 4.90422 10.6894 4.90128 10.2973 5.28852L11 6C10.2973 5.28852 10.2973 5.28853 10.2973 5.28856L10.2971 5.28866L10.2967 5.28908L10.2951 5.29071L10.2886 5.29714L10.2632 5.32224L10.166 5.41826L9.81199 5.76861C9.51475 6.06294 9.10795 6.46627 8.66977 6.90213C8.11075 7.4582 7.49643 8.07141 6.99329 8.57908L5.70711 7.29289C5.31658 6.90237 4.68342 6.90237 4.29289 7.29289C3.90237 7.68342 3.90237 8.31658 4.29289 8.70711L6.29289 10.7071C6.68342 11.0976 7.31658 11.0976 7.70711 10.7071L11.7071 6.70711Z' fill='black' fill-opacity='0.9'/%3E%3C/svg%3E");
   mask: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16ZM11.7071 6.70711C12.0968 6.31744 12.0978 5.68597 11.7093 5.29509C11.3208 4.90422 10.6894 4.90128 10.2973 5.28852L11 6C10.2973 5.28852 10.2973 5.28853 10.2973 5.28856L10.2971 5.28866L10.2967 5.28908L10.2951 5.29071L10.2886 5.29714L10.2632 5.32224L10.166 5.41826L9.81199 5.76861C9.51475 6.06294 9.10795 6.46627 8.66977 6.90213C8.11075 7.4582 7.49643 8.07141 6.99329 8.57908L5.70711 7.29289C5.31658 6.90237 4.68342 6.90237 4.29289 7.29289C3.90237 7.68342 3.90237 8.31658 4.29289 8.70711L6.29289 10.7071C6.68342 11.0976 7.31658 11.0976 7.70711 10.7071L11.7071 6.70711Z' fill='black' fill-opacity='0.9'/%3E%3C/svg%3E");
 }
 
 #payment-status-container.is-success:after {
-  content: "Payment successful";
+  content: "Thank you for your purchase. We will be in touch shortly to get more info about this project and look forward to working with you!";
   font-size: 14px;
   line-height: 16px;
 }
@@ -189,7 +197,7 @@ button:disabled {
   content: "applicationId and/or locationId is incorrect";
   font-size: 14px;
   line-height: 16px;
-}
+} */
 
 #payment-status-container.is-success.store-card-message:after {
   content: "Store card successful";

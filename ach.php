@@ -61,16 +61,18 @@
       }
 
       // status is either SUCCESS or FAILURE;
-      function displayPaymentResults(status) {
-        const statusContainer = document.getElementById(
-          'payment-status-container'
-        );
+      function displayPaymentResults(status, error_message = "An error occurred while processing your payment.") {
+        const statusContainer = document.getElementById('payment-status-container');
         if (status === 'SUCCESS') {
-          statusContainer.classList.remove('is-failure');
-          statusContainer.classList.add('is-success');
+          document.getElementById('methodes-tabs').style.visibility = 'hidden';
+          statusContainer.innerHTML = '<img width="50" src="./ok_icon.png" /><h3 style="color : #00b23b">PAYMENT SUCCESSFUL</h3>'+
+                                      '<p>Thank you for your purchase. We will be in touch shortly to get more info about this project and look forward to working with you!</p>' +
+                                      '<p></p>'+
+                                      '<a href="https://www.eventrap.com/pricing/">GO BACK</a>';
         } else {
-          statusContainer.classList.remove('is-success');
-          statusContainer.classList.add('is-failure');
+          statusContainer.innerHTML = '<img width="50" src="./faild_icon.jpeg" /><h3 style="color : red">PAYMENT FAILED</h3>'+
+                                      '<p>'+error_message+'</p>' +
+                                      '<a href="https://www.eventrap.com/pricing/">GO BACK</a>';
         }
 
         statusContainer.style.visibility = 'visible';
@@ -102,10 +104,10 @@
         try {
           payments = window.Square.payments(appId, locationId);
         } catch {
-          const statusContainer = document.getElementById(
-            'payment-status-container'
-          );
-          statusContainer.className = 'missing-credentials';
+          const statusContainer = document.getElementById('payment-status-container');
+          statusContainer.innerHTML = '<img width="50" src="./faild_icon.jpeg" /><h3 style="color : red">MISSING CREDENTIALS</h3>'+
+                                      '<p>Impossible to make payment</p>' +
+                                      '<a href="https://www.eventrap.com/pricing/">GO BACK</a>';
           statusContainer.style.visibility = 'visible';
           return;
         }
@@ -142,9 +144,15 @@
 
             const token = await tokenize(paymentMethod, options);
             const paymentResults = await createPayment(token, amount);
-            displayPaymentResults('SUCCESS');
+            
+            if(paymentResults.payment){
+                displayPaymentResults('SUCCESS');
+            }else{
+                const error_message = paymentResults[0].detail ? "An error occurred while processing your payment. " + paymentResults[0].detail : "An error occurred while processing your payment."
+                displayPaymentResults('FAILURE', error_message);
+            }
 
-            console.debug('Payment Success', paymentResults);
+            console.log('Payment Success', paymentResults);
           } catch (e) {
             cardButton.disabled = false;
             achButton.disabled = false;
@@ -243,7 +251,7 @@
 
             <div id="payment-status-container"></div>
 
-            <div class="methodes-tabs">
+            <div id="methodes-tabs" class="methodes-tabs">
 
                 <div class="tabs-header">
                     <div class="tab active" data-tab="tab1"><span>PAY WITH CARD</span></div>

@@ -34,7 +34,6 @@ $create_payment_request = new CreatePaymentRequest($data['sourceId'], $order_id,
 $response = $payments_api->createPayment($create_payment_request);
 
 if ($response->isSuccess()) {
-    var_dump($response->getResult());
   echo json_encode($response->getResult());
 } else {
   echo json_encode($response->getErrors());

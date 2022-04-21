@@ -1,32 +1,25 @@
 * {
   box-sizing: border-box;
-}
-
-body {
   font-family: Arial, sans-serif;
-  background-color: #dadada !important;
 }
 
 #payment-form {
-  max-width: 550px;
+  /* max-width: 550px;
   min-width: 300px;
-  margin: 150px auto;
+  margin: 150px auto; */
 }
 
 .buyer-inputs {
   display: flex;
-  gap: 20px;
+  gap: 15px;
   justify-content: space-between;
   border: none;
   margin: 0;
   padding: 0;
+  margin-bottom: 15px;
 }
 
 #card-container {
-  margin-top: 45px;
-  /* this height depends on the size of the container element */
-  /* We transition from a single row to double row at 485px */
-  /* Settting this min-height minimizes the impact of the card form loading */
   min-height: 90px;
 }
 
@@ -42,7 +35,7 @@ body {
 }
 
 #ach-button {
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 #landing-page-layout {
@@ -96,18 +89,18 @@ input {
   width: 100%;
   border-radius: 5px;
   border-width: 1px;
-  margin-top: 20px;
+  margin-top: 5px;
   font-size: 16px;
   border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 input:focus {
-  border: 1px solid #006aff;
+  border: 1px solid #e3e3e3;
 }
 
 button {
   color: #ffffff;
-  background-color: #006aff;
+  background-color: #bb0505;
   border-radius: 5px;
   cursor: pointer;
   border-style: none;
@@ -122,11 +115,11 @@ button {
 }
 
 button:active {
-  background-color: rgb(0, 85, 204);
+  background-color: rgb(144, 1, 1);
 }
 
 button:disabled {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(11, 11, 11, 0.05);
   color: rgba(0, 0, 0, 0.3);
 }
 
@@ -137,7 +130,7 @@ button:disabled {
   border: 1px solid rgba(0, 0, 0, 0.05);
   box-sizing: border-box;
   border-radius: 50px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   width: 225px;
   height: 48px;
   visibility: hidden;
@@ -208,4 +201,61 @@ button:disabled {
 
 #afterpay-button {
   height: 40px;
+}
+
+
+
+
+
+
+.payment{
+  width: 100%;
+  min-height: calc(100vh - 100px);
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.methodes-tabs{
+  width: 500px;
+}
+
+.methodes-tabs .tabs-header {
+  display: flex;
+  width: 100%;
+  gap:10px
+}
+
+.tabs-header .tab{
+  padding: 10px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.tabs-header .tab.active{
+  background-color: #DD3333;
+  color: #fff;
+  transition: background-color 0.5s;
+}
+
+.tabs-content{
+  width: 100%;
+  min-height: 350px;
+  background-color: #f9f9f9;
+  padding: 30px 20px;
+  border-radius: 0px 5px 5px;
+  box-shadow: 2px 2px 5px 2px #f0f0f0;
+  border: 1px solid #ededed;
+}
+
+.tab-content{
+  display: none;
+}
+
+.tab-content.active{
+  display: block;
+}
+
+#card-button{
+  margin-top: -20px !important;
 }

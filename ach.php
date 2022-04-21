@@ -10,7 +10,7 @@
       async function initializeCard(payments) {
         const card = await payments.card();
         await card.attach('#card-container');
-
+        document.getElementById('loader-card').style.display = "none";
         return card;
       }
 
@@ -219,7 +219,19 @@
         }
 
         #card-button{
-            margin-top: -20px !important;
+            margin-top: -10px !important;
+        }
+
+
+
+
+
+
+        #loader-card{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 137px !important;
         }
     </style>
   </head>
@@ -255,7 +267,13 @@
                                 <input type="email" placeholder="Email" name="email" required="required" />
                             </fieldset>
 
-                            <div id="card-container"></div>
+                            <div id="card-container">
+                              <div id="loader-card">
+                                <span>Loading card form...</span>
+                              </div>
+                            </div>
+
+                           
 
                             <button id="card-button" type="button">Pay $1.00</button>
 
@@ -268,7 +286,9 @@
                         <form id="payment-form">
 
                             <input name="amount" id="amount" value="3000" type="hidden" />
-
+                            <br/>
+                            <br/>
+                            <br/>
                             <fieldset class="buyer-inputs">
                                 <input
                                     type="text"

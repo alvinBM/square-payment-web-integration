@@ -24,7 +24,7 @@ async function askPermission() {
 }
 
 async function registerServiceWorker() {
-  const registration = await navigator.serviceWorker.register("/sw.js");
+  const registration = await navigator.serviceWorker.register("sw.js");
   let subscription = await registration.pushManager.getSubscription();
   // L'utilisateur n'est pas déjà abonné, on l'abonne au notification push
   if (!subscription) {

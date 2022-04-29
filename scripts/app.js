@@ -36,7 +36,23 @@ async function registerServiceWorker() {
 
   console.log(subscription);
 
-  //await saveSubscription(subscription);
+  await saveSubscription(subscription);
+}
+
+
+/**
+ * @param {PushSubscription} subscription
+ * @returns {Promise<void>}
+ */
+async function saveSubscription(subscription) {
+  await fetch("pushSubscribe.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(subscription)
+  });
 }
 
 

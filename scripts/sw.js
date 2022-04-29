@@ -3,6 +3,6 @@ self.addEventListener("install", () => {
 });
 
 self.addEventListener("push", (event) => {
-  const data = event.data ? event.data.json() : {};
+  const data = event.data ? event.data.text() : {};
   event.waitUntil(self.registration.showNotification(data.title, data));
 });

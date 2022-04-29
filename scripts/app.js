@@ -24,7 +24,7 @@ async function askPermission() {
 }
 
 async function registerServiceWorker() {
-  const registration = await navigator.serviceWorker.register("/sw.js");
+  const registration = await navigator.serviceWorker.register("sw.js");
   let subscription = await registration.pushManager.getSubscription();
   // L'utilisateur n'est pas déjà abonné, on l'abonne au notification push
   if (!subscription) {
@@ -36,7 +36,23 @@ async function registerServiceWorker() {
 
   console.log(subscription);
 
-  //await saveSubscription(subscription);
+  await saveSubscription(subscription);
+}
+
+
+/**
+ * @param {PushSubscription} subscription
+ * @returns {Promise<void>}
+ */
+async function saveSubscription(subscription) {
+  await fetch("pushSubscribe.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(subscription)
+  });
 }
 
 

@@ -43,50 +43,6 @@ foreach ($webPush->flush() as $report) {
 }
 
 
-
-
-
-
-
-
-// // var_dump($users); die;
-
-// foreach($users as $subscription) {
-//     $notifications []= [
-//         'subscription' => Subscription::create([
-//             'endpoint' => $subscription->endpoint,
-//             'publicKey' => $subscription->public_key,
-//             'authToken' => $subscription->auth
-//         ]),
-//         'payload' => 'Vous avez un nouveau message !',
-//     ];
-// }
-
-// $webPush = new WebPush();
-
-
-// // send multiple notifications with payload
-// foreach ($notifications as $notification) {
-//     echo "Notifications data<hr/>";
-//     var_dump($notification);
-//     echo "<hr/>";
-//     $webPush->queueNotification(
-//         $notification['subscription'],
-//         $notification['payload'] // optional (defaults null)
-//     );
-// }
-
-// foreach ($webPush->flush() as $report) {
-//     $endpoint = $report->getRequest()->getUri()->__toString();
-//     if ($report->isSuccess()) {
-//         var_dump("[v] Le message bien été envoyé {$endpoint}.");
-//     } else {
-//         var_dump("[x] Impossible d'envoyer le message {$endpoint}: {$report->getReason()}");
-//     }
-// }
-
-
-
 function getUser(){
     try {
         $dbh = new PDO('mysql:host=localhost;dbname=test_push', "root", "root");

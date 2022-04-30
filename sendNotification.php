@@ -29,7 +29,8 @@ foreach($users as $subscription) {
         ]),
         json_encode([
             'message' => 'Bonjour les gens',
-            'title' => 'Vous avez un nouveau message'
+            'title' => 'Tiki Live support',
+            'url' => 'http://localhost/tiki'
         ])
     );
 }

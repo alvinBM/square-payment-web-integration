@@ -30,7 +30,8 @@ foreach($users as $subscription) {
         json_encode([
             'message' => 'Bonjour les gens',
             'title' => 'Tiki Live support',
-            'url' => 'http://localhost/tiki/tiki-index.php'
+            'url' => 'http://localhost/tiki/tiki-index.php',
+            'icon' => 'https://avan.tech/themes/base_files/favicons/apple-touch-icon.png'
         ])
     );
 }

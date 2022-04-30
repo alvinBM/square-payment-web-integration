@@ -6,8 +6,10 @@ self.addEventListener("push", (event) => {
   const data = event.data ? event.data.json() : {};
   event.waitUntil(self.registration.showNotification(data.title, {
     body : data.message,
+    icon : data.icon,
     data : data
   }));
+  console.log(data)
 });
 
 self.addEventListener("notificationclick", (event) => {

@@ -30,7 +30,7 @@ foreach($users as $subscription) {
         json_encode([
             'message' => 'Bonjour les gens',
             'title' => 'Tiki Live support',
-            'url' => 'http://localhost/tiki'
+            'url' => 'http://localhost/tiki/tiki-index.php'
         ])
     );
 }
